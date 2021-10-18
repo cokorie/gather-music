@@ -12,6 +12,7 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const eventsRouter = require('./routes/events');
 const artistsRouter = require('./routes/artists');
 
 const app = express();
@@ -40,7 +41,10 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(methodOverride('_method'));
+
 app.use('/', indexRouter);
+app.use('/events', eventsRouter);
 app.use('/artists', artistsRouter);
 
 // catch 404 and forward to error handler

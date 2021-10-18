@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const artistsCtrl = require('../controllers/artists');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Welcome to the Gather Music artist page!');
-});
+router.get('/', artistsCtrl.index);
+router.get('/new', artistsCtrl.new);
+router.post('/', artistsCtrl.create);
 
 module.exports = router;

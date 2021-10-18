@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<table id="list">
+    <thead>
+      <tr>
+        <th>Venue</th>
+        <th>Performing Artists</th>
+        <th>Date</th>
+        <th>Details</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.forEach(function(e) { %>
+        <tr>
+          <td><%= e.venue %></td>
+          <td><%- e.acts.map(a => `${a.name}`).join('')%></td>
+          <td><%= e.date.toLocaleString() %></td>
+          <td><a href="/events/<%= e._id %>"><%= e.venue %> Venue Page</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+<%- include('../partials/footer') %>

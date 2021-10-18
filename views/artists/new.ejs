@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<form id="add-artist-form" action="/artists" method="POST">
+    <label>Artist Name:</label>
+    <input type="text" name="name">
+    <label>Musical Genre:</label>
+    <select name="genre" id="genre">
+        <option value="N/A" selected>N/A</option>
+        <option value="Alternative">Alternative</option>
+        <option value="Blues">Blues</option>
+        <option value="Classical">Classical</option>
+        <option value="Country">Country</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Gospel">Gospel</option>
+        <option value="Hip-Hop/Rap">Hip-Hop/Rap</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Pop">Pop</option>
+        <option value="R&B">R&B</option>
+        <option value="Rock">Rock</option>
+        <option value="Soul/Funk">Soul/Funk</option>
+        <option value="Urbano Latino">Urbano Latino</option>
+    </select>
+    <input type="submit" value="Add Artist">
+  </form>
+
+<%- include('../partials/footer') %>

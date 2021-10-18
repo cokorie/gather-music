@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<form id="new-event" action="/events" method="POST">
+    <label>Venue:</label>
+    <input type="text" name="venue">
+    <label>Event Date & Time:</label>
+    <input type="datetime-local" name="date">
+    <input type="submit" value="Add Event">
+</form>
+
+<form id="add-artist">
+    <label>Add Artist:</label>
+    <select name="artist">
+      <% artists.forEach(function(a) { %>
+        <option value="<%= a._id %>"><%= a.name %></option>
+   <%  }); %>
+    </select>
+</form>
+
+<form id="create-artist" >
+
+</form>
+
+<%- include('../partials/footer') %>
