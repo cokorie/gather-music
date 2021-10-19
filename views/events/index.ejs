@@ -14,7 +14,7 @@
       <% events.forEach(function(e) { %>
         <tr>
           <td><%= e.venue %></td>
-          <td><%- e.acts.map(a => `${a.name}`).join('')%></td>
+          <td><%- e.artists.map(a => `${a.name}`).join(', ')%></td>
           <td><%= e.date.toLocaleString() %></td>
           <td><a href="/events/<%= e._id %>"><%= e.venue %> Venue Page</a></td>
         </tr>

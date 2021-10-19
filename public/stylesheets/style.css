@@ -59,26 +59,6 @@ nav > a.active {
   cursor: default;
 }
 
-#new-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
-}
-
-#new-form *,
-#add-review-form *,
-#add-performer-form * {
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
-}
-
 table {
   font-size: 20px;
 }
@@ -107,30 +87,6 @@ table td {
 
 #list a:hover {
   background-color: white;
-}
-
-#show-page {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-}
-
-#show-page div:nth-child(even) {
-  font-weight: bold;
-}
-
-#add-review-form,
-#add-performer-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-#add-review-form input[type="submit"],
-#add-performer-form input[type="submit"]  {
-  width: 10rem;
-  grid-column: 2 / 3;
 }
 
 hr {
@@ -177,13 +133,32 @@ li {
   height: 30px;
 }
 
-.review-user {
+.message-user {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.review-user img {
+.message-user img {
   border-radius: 50%;
   height: 40px;
+}
+
+.form-outline > input {
+  display: flex;
+  align-self: center;
+  margin-left: 600px;
+}
+
+.form-outline > textarea {
+  display: flex;
+  align-self: center;
+  width: 1000px;
+  margin-left: 150px;
+}
+
+.header > h3 {
+  display: flex;
+  align-self: center;
+  margin-left: 600px;
 }

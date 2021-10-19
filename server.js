@@ -14,6 +14,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const artistsRouter = require('./routes/artists');
+const messagesRouter = require('./routes/messages');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
 app.use('/artists', artistsRouter);
+app.use('/', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

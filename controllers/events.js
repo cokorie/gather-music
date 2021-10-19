@@ -6,19 +6,27 @@ module.exports = {
     new: newEvent,
     create,
     show,
-    delete: deleteEvent
+    delete: deleteEvent,
+    addToEvent
 };
+
+function addToEvent(req, res) {
+  Artist.findById(req.params.id, function(err, eventInfo) {
+    eventInfo.artists.push(req.body.artistId);
+    eventInfo.save(function(err) {
+      res.redirect(`/events/${eventInfo._id}`);
+    });
+  });
+}
 
 function index(req, res) {
     Event.find({}, function (err, events) {
       res.render('events/index', { title: 'All Events', events });
-    });
+    }).sort('date');
   }
 
 function newEvent(req, res) {
-    Artist.find({}, function(err, artists) {
-      res.render('events/new', { title: 'Add Event', artists });
-    });
+      res.render('events/new', { title: 'Add Event' });
 }
 
 function create(req, res) {
@@ -29,12 +37,12 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Event.findById(req.params.id).populate('acts').exec(function(err, eventInfo) {
-    Artist.find({eventInfo: req.params.id}, function(err, artist) {
-      console.log(artist);
+  Event.findById(req.params.id).populate('artists').exec(function(err, eventInfo) {
+    Artist.find({_id: {$nin: eventInfo.artists}}, function(err, artists) {
+      console.log(artists);
       res.render('events/show', {
         title: 'Event Info',
-        eventInfo, artist
+        eventInfo, artists
       });
     });
   }); 

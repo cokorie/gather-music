@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
+
+const messageSchema = new Schema({
+  content: String,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  userName: String,
+  userAvatar: String
+}, {
+  timestamps: true
+});
 
 const eventSchema = new mongoose.Schema({
  venue: {
@@ -10,10 +18,8 @@ const eventSchema = new mongoose.Schema({
   date: {
     type: Date,
   },
-  message: {
-    type: String,
-  },
-  acts: [{type: Schema.Types.ObjectId, ref: 'Artist'}],
+  messages: [messageSchema],
+  artists: [{type: Schema.Types.ObjectId, ref: 'Artist'}]
 }, {
     timestamps: true
 });

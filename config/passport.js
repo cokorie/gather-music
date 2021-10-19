@@ -20,7 +20,7 @@ passport.use(
               avatar: profile.photos[0].value
             });
             return cb(null, user);
-          } catch (err) {
+          } catch(err) {
             return cb(err);
           }
         });

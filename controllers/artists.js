@@ -4,7 +4,7 @@ module.exports = {
     index,
     new: newArtist,
     create
-}
+};
 
 function index(req, res) {
     Artist.find({}, function (err, artists) {

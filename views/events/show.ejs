@@ -1,12 +1,77 @@
-<%- include('../partials/header') %>
+<%- include("../partials/header") %>
 
-<p>Welcome to the Main Event page</p>
+<h3 class="header">Welcome to the <%= eventInfo.venue %> Page</h3>
 
+<section>
+    <strong><div>Venue: </div></strong>
+    <div><%= eventInfo.venue%></div>
+    <strong><div>Performance Date: </div></strong>
+    <div><%= eventInfo.date.toLocaleString()%></div>
+</section>
+
+<section>
+    <% if (eventInfo.artists.length) { %>
+        <strong><div>Performing Acts:</div></strong>
+        <ul>
+            <% eventInfo.artists.forEach(function(a) { %>
+                <li name="artistId"><%= a.name %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <h3>No Performing Acts At This Time</h3>
+    <% } %>
+</section>
+
+<% if (user) { %>
+    <form id="add-artist" method="POST" action="/events/<%= eventInfo._id %>/artists">
+        <label>Add Artist:</label>
+        <br>
+        <select name="artistId">
+        <% artists.forEach(function(a) { %>
+            <option value="<%= a._id %>"><%= a.name %></option>
+        <%  }); %>
+        </select>
+        <br><br>
+        <button type="submit">Add Artist to Event</button>
+    </form>
+<% } %>
+
+<br><br>
+<h3 class="header">Messages</h3>
+<form id="add-comment" method="POST" action="/events/<%= eventInfo._id %>/messages">
 <div class="form-outline">
-    <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+    <textarea name="content" class="form-control" id="textAreaExample" rows="4"></textarea>
     <label class="form-label" for="textAreaExample"></label>
-    <button>Add Message</button>
+    <br><br>
+    <input type="submit" value="Add Message">
+</form>
 </div>
 
+<% if (eventInfo.messages.length) { %>
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% eventInfo.messages.forEach(function(m) { %>
+            <tr>
+                <td class="message-user"><img src="<%= m.userAvatar %>" alt="avatar"><%= m.userName %></td>
+                <td><%= m.content %></td>
+                <td>
+                    <% if (user?._id.equals(m.user)) { %>
+                      <form action="/messages/<%= m._id %>?_method=DELETE" method="POST">
+                        <button type="submit">X</button>
+                      </form>
+                    <% } %>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>
+<% } else { %>
+    <h4>No Messages</h4>
+<% } %>    
 
-<%- include('../partials/header') %>
+<%- include("../partials/footer") %>

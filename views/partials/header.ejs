@@ -13,7 +13,7 @@
         <% if (user) { %>
           <a href="/">Home</a>
           <a href="/events" <%- title === 'All Events' ? 'class="active"' : '' %>>View Events</a>
-          <a href="/artists/" <%- title === 'Artist Page' ? 'class="active"' : '' %>>Artist Page</a>
+          <a href="/artists/" <%- title === 'Artist Page' ? 'class="active"' : '' %>>Artists</a>
           <a href="/events/new"	<%- title === 'Add Event' ? 'class="active"' : '' %>>Add An Event</a>
           <a href="/artists/new"	<%- title === 'Add Artist' ? 'class="active"' : '' %>>Add An Artist</a>
           <img src="<%= user.avatar %>" alt="Hello, <%= user.name %>" class="login">&nbsp;<a href="/logout">Log Out</a>
