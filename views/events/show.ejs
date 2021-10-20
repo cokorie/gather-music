@@ -14,7 +14,7 @@
         <strong><div>Performing Acts:</div></strong>
         <ul>
             <% eventInfo.artists.forEach(function(a) { %>
-                <li name="artistId"><%= a.name %></li>
+                <li><%= a.name %></li>
             <% }) %>
         </ul>
     <% } else { %>
@@ -34,18 +34,19 @@
         <br><br>
         <button type="submit">Add Artist to Event</button>
     </form>
-<% } %>
 
 <br><br>
-<h3 class="header">Messages</h3>
-<form id="add-comment" method="POST" action="/events/<%= eventInfo._id %>/messages">
-<div class="form-outline">
-    <textarea name="content" class="form-control" id="textAreaExample" rows="4"></textarea>
-    <label class="form-label" for="textAreaExample"></label>
-    <br><br>
-    <input type="submit" value="Add Message">
-</form>
-</div>
+    <h3 class="header">Messages</h3>
+    <form id="add-comment" method="POST" action="/events/<%= eventInfo._id %>/messages">
+    <div class="form-outline">
+        <textarea name="content" class="form-control" id="textAreaExample" rows="4"></textarea>
+        <label class="form-label" for="textAreaExample"></label>
+        <br><br>
+        <input type="submit" value="Add Message">
+    </form>
+    </div>
+<% } %>
+
 
 <% if (eventInfo.messages.length) { %>
 <table>

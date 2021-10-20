@@ -26,6 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 
 app.use(session({
   secret: process.env.SECRET,
@@ -42,12 +43,12 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(methodOverride('_method'));
+const isLoggedIn = require('./config/auth');
 
 app.use('/', indexRouter);
-app.use('/events', eventsRouter);
+app.use('/events', isLoggedIn, eventsRouter);
 app.use('/artists', artistsRouter);
-app.use('/', messagesRouter);
+app.use('/', isLoggedIn, messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

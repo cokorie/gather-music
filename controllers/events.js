@@ -12,6 +12,7 @@ module.exports = {
 
 function addToEvent(req, res) {
   Artist.findById(req.params.id, function(err, eventInfo) {
+    console.log(req.params.id);
     eventInfo.artists.push(req.body.artistId);
     eventInfo.save(function(err) {
       res.redirect(`/events/${eventInfo._id}`);
