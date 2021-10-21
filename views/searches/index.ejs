@@ -1,5 +1,11 @@
 <%- include('../partials/header') %>
 
+<form id="city-search" action="/searches/index" method="POST">
+    <label>City: </label>
+    <input type="text" name="city">
+    <input type="submit" value="Search for Event">
+</form>
+
 <table id="list">
     <thead>
       <tr>
@@ -8,8 +14,10 @@
         <th>Performing Artists</th>
         <th>Date</th>
         <th>Details</th>
+        <th></th>
       </tr>
     </thead>
+    <% if (events.length) { %>
     <tbody>
       <% events.forEach(function(e) { %>
         <tr>
@@ -18,21 +26,13 @@
           <td><%- e.artists.map(a => `${a.name}`).join(', ')%></td>
           <td><%= e.date.toLocaleString() %></td>
           <td><a href="/events/<%= e._id %>"><%= e.venue %> Venue Page</a></td>
-          <% if(user?._id.equals(e.user)) { %>
-          <td>
-            <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-            </form>
-          </td>
-          <td>
-            <form action="/events/<%= e._id %>/edit">
-              <button type="submit">EDIT</button>
-            </form>
-          </td>
-          <% } %>
         </tr>
         <% }); %>
     </tbody>
-</table>
+    <% } else { %>
+        <h1>No Matching Results</h1>
+    <% } %> 
+    </table>
+
 
 <%- include('../partials/footer') %>

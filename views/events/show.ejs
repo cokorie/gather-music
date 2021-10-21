@@ -2,14 +2,22 @@
 
 <h3 class="header">Welcome to the <%= eventInfo.venue %> Page</h3>
 
-<section>
+<section class="eventShow">
     <strong><div>Venue: </div></strong>
     <div><%= eventInfo.venue%></div>
+</section>
+
+<section class="eventShow">
+    <strong><div>City: </div></strong>
+    <div><%= eventInfo.city%></div>
+</section>
+
+<section class="eventShow">
     <strong><div>Performance Date: </div></strong>
     <div><%= eventInfo.date.toLocaleString()%></div>
 </section>
 
-<section>
+<section class="eventShow">
     <% if (eventInfo.artists.length) { %>
         <strong><div>Performing Acts:</div></strong>
         <ul>
@@ -67,6 +75,7 @@
                         <button type="submit">X</button>
                       </form>
                     <% } %>
+                </td>
             </tr>
             <% }) %>
     </tbody>

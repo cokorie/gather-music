@@ -15,6 +15,7 @@ const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const artistsRouter = require('./routes/artists');
 const messagesRouter = require('./routes/messages');
+const searchesRouter = require('./routes/searches');
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use('/', indexRouter);
 app.use('/events', isLoggedIn, eventsRouter);
 app.use('/artists', artistsRouter);
 app.use('/', isLoggedIn, messagesRouter);
+app.use('/', searchesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
