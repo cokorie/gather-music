@@ -8,6 +8,9 @@
         <th>Performing Artists</th>
         <th>Date</th>
         <th>Details</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,15 +24,20 @@
           <% if(user?._id.equals(e.user)) { %>
           <td>
             <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
+            <button type="submit" id="eventDelete">X</button>
             </form>
           </td>
           <td>
             <form action="/events/<%= e._id %>/edit">
-              <button type="submit">EDIT</button>
+              <button type="submit" id="eventEdit">Edit</button>
             </form>
           </td>
           <% } %>
+          <td>
+            <form action="/events/<%= e._id %>/likes" method="POST">
+              <button type="submit" id="eventLike">Like (<%= e.like.length %>)</button>
+            </form>
+          </td>
         </tr>
         <% }); %>
     </tbody>

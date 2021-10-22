@@ -6,6 +6,7 @@
 
 body {
   display: grid;
+  background-color: lightsteelblue;
   height: 25vh;
   grid-template-rows: 50px;
   grid-template-areas: 
@@ -24,13 +25,13 @@ body > nav {
 nav > a {
   margin: 55px;
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
 }
 
 nav > a:hover:not(.active) {
   color: white;
-  background-color: lightblue;
+  background-color: blue;
 }
 
 nav > a.active {
@@ -43,7 +44,7 @@ table {
 }
 
 table thead th {
-  padding: 5px;
+  padding: 15px;
   border-bottom: 2px solid #424748;
   text-align: center;
 }
@@ -51,6 +52,7 @@ table thead th {
 table td {
   padding: 10px;
   text-align: center;
+  font-size: 2vmin;
 }
 
 #list td:nth-child(2), #list td:nth-child(3){
@@ -70,10 +72,6 @@ table td {
   color: white;
 }
 
-hr {
-  color: #424748
-}
-
 ul {
   margin: 0 0 1rem;
   padding: 0;
@@ -84,6 +82,10 @@ li {
   font-weight: bold;
 }
 
+.login img {
+  height: 20px;
+}
+
 .login {
   display: flex;
   justify-content: center;
@@ -91,10 +93,6 @@ li {
   height: 34px;
   margin-left: 25px;
   border-radius: 50%;
-}
-
-.login img {
-  height: 20px;
 }
 
 .logout {
@@ -109,20 +107,22 @@ li {
 
 .message-user img {
   border-radius: 50%;
-  height: 40px;
+  height: 20px;
 }
 
 .form-outline > input {
-  display: flex;
+  display: grid;
+  justify-content: center;
   align-self: center;
-  margin-left: 600px;
+  margin-left: 620px;
 }
 
 .form-outline > textarea {
-  display: flex;
+  display: grid;
+  justify-content: center;
   align-self: center;
-  width: 1000px;
-  margin-left: 150px;
+  width: 100vmin;
+  margin-left: 350px;
 }
 
 .header {
@@ -132,47 +132,202 @@ li {
   margin: 25px 0 30px 60px
 }
 
-#main1 {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin-top: 275px;
-  font-family: 'Raleway', sans-serif;
-  color: black;
-}
-
-#main2 {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin-top: 75px;
-  color: black;
-}
-
-#main3 {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin-top: 10px;
-  color: black;
-}
-
 .eventShow {
-  display: flex;
+  display: grid;
   justify-content: center;
+  align-self: center;
   margin: 0 0 25px 60px;
 }
 
 #add-artist {
-  display: flex;
+  display: grid;
   justify-content: center;
-  margin-left: 60px;
+  align-self: center;
 }
 
-#homeImage {
-  background-image: url('https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+#forArtist {
+  margin: 20px;
+}
+
+#addHeader {
+margin: 30px 30px;
 }
 
 form {
-  margin-top: 20px;
+  margin-top: 20px 30px 20px 20px;
+}
+
+#new-event {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 20px;
+  margin: 8px 10;
+  margin-top: 30px;
+  border: 4px double #39A9DB;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#event1 {
+  margin-left: 14vmin;  
+}
+
+#event2 {
+  margin-left: 15vmin;  
+}
+
+#event3 {
+  margin-left: 9vmin;  
+}
+
+#e-submit {
+  margin-top: 10px;
+}
+
+#add-artist-form {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 20px;
+  margin: 8px 10;
+  margin-top: 30px;
+  border: 4px double #39A9DB;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#artist1 {
+  margin-left: 6vmin;  
+}
+
+#artist2 {
+  margin-left: 4.5vmin;  
+}
+
+#a-submit {
+  margin-top: 10px;
+}
+
+#city-search {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 20px;
+  margin: 8px 10;
+  margin-top: 30px;
+  border: 4px double #39A9DB;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#city-search label {
+  margin-left: 9.5vmin;
+}
+
+#city-search input {
+  margin-top: 10px;
+}
+
+table tbody h1 {
+  padding: 10px;
+}
+
+#eventShow1 {
+  margin-left: 3vmin; 
+}
+
+#eventShow2 {
+  margin-left: 1.9vmin; 
+}
+
+#eventShow3 {
+  margin-left: 1.7vmin; 
+}
+
+#eventShow4 {
+  margin-left: 2.5vmin; 
+}
+
+#eventShow5 {
+  margin-top: 10px;
+}
+
+.form-control {
+  margin-left: 50vmin;
+}
+
+#m-button {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+}
+
+#m-none {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  margin: 20px 0 0 50px;
+  
+}
+
+#eventDelete {
+  border-radius: 20%;
+  margin-bottom: 30px;
+}
+
+#eventDelete:hover {
+  background-color: red;
+  color: white;
+}
+
+#eventEdit {
+  border-radius: 20%;
+  margin-bottom: 30px;
+}
+
+#eventEdit:hover {
+  background-color: yellow;
+  color: black;
+}
+
+#eventLike {
+  border-radius: 20%;
+  margin-bottom: 30px;
+}
+
+#eventLike:hover {
+  background-color: green;
+  color: white;
+}
+
+#eventEditTable {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 20px;
+  margin: 8px 10;
+  margin-top: 30px;
+  border: 4px double #39A9DB;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#editArtist {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  padding: 10px 20px;
+  margin: 8px 10;
+  border: 4px double #39A9DB;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#editHeader {
+  margin-bottom: 20px;
+}
+
+#artist-r {
+  margin-left: 20px;
 }

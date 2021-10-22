@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
-<form id="new-event" action="/events" method="POST">
-    <label>Venue:</label>
-    <input type="text" name="venue">
-    <label>City:</label>
-    <input type="text" name="city">
-    <label>Event Date & Time:</label>
-    <input type="datetime-local" name="date">
-    <input type="submit" value="Add Event">
+<form id="new-event"action="/events" method="POST">
+    <label id="event1">Venue:</label>
+    <input type="text" name="venue" required>
+    <label id="event2">City:</label>
+    <input type="text" name="city" required>
+    <label id="event3">Event Date & Time:</label>
+    <input type="datetime-local" name="date" required>
+    <input id="e-submit"type="submit" value="Add Event">
 </form>
 
 <form id="create-artist" >

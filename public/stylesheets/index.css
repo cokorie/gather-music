@@ -1,0 +1,67 @@
+#homeImage {
+    background-image: url('https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  }
+
+body {
+    display: grid;
+    height: 25vh;
+    grid-template-rows: 50px;
+    grid-template-areas: 
+      "nav"
+  }
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+    margin-left: 25px;
+  }
+  
+.login img {
+    height: 20px;
+  }
+
+.logout {
+    height: 34px;
+    border-radius: 50%;
+  }
+
+body > nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: lightblue;
+  }
+
+nav > a {
+    margin: .05vmin;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+nav > a:hover:not(.active) {
+    color: white;
+    background-color: blue;
+  }
+
+#main1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 275px;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    font-size: 10vmin;
+  }
+  
+#main2 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 75px;
+    color: black;
+  }

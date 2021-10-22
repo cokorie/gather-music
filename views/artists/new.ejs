@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
 <form id="add-artist-form" action="/artists" method="POST">
-    <label>Artist Name:</label>
-    <input type="text" name="name">
-    <label>Musical Genre:</label>
+    <label id="artist1">Artist Name:</label>
+    <input type="text" name="name" required>
+    <label id="artist2">Musical Genre:</label>
     <select name="genre" id="genre">
         <option value="N/A" selected>N/A</option>
         <option value="Alternative">Alternative</option>
@@ -20,7 +20,7 @@
         <option value="Soul/Funk">Soul/Funk</option>
         <option value="Urbano Latino">Urbano Latino</option>
     </select>
-    <input type="submit" value="Add Artist">
+    <input id="a-submit" type="submit" value="Add Artist">
   </form>
 
 <%- include('../partials/footer') %>

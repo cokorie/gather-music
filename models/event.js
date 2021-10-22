@@ -23,7 +23,8 @@ const eventSchema = new mongoose.Schema({
   city: {
     type: String, 
     required: true
-  }
+  },
+  like: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
     timestamps: true
 });

@@ -3,17 +3,17 @@
 <h3 class="header">Welcome to the <%= eventInfo.venue %> Page</h3>
 
 <section class="eventShow">
-    <strong><div>Venue: </div></strong>
+    <strong><div id="eventShow1">Venue: </div></strong>
     <div><%= eventInfo.venue%></div>
 </section>
 
 <section class="eventShow">
-    <strong><div>City: </div></strong>
+    <strong><div id="eventShow2">City: </div></strong>
     <div><%= eventInfo.city%></div>
 </section>
 
 <section class="eventShow">
-    <strong><div>Performance Date: </div></strong>
+    <strong><div id="eventShow3">Performance Date: </div></strong>
     <div><%= eventInfo.date.toLocaleString()%></div>
 </section>
 
@@ -32,36 +32,33 @@
 
 <% if (user) { %>
     <form id="add-artist" method="POST" action="/events/<%= eventInfo._id %>/artists">
-        <label>Add Artist:</label>
-        <br>
+        <label id="eventShow4">Add Artist:</label>
         <select name="artistId">
         <% artists.forEach(function(a) { %>
             <option value="<%= a._id %>"><%= a.name %></option>
         <%  }); %>
         </select>
-        <br><br>
-        <button type="submit">Add Artist to Event</button>
+        <button id="eventShow5" type="submit">Add Artist to Event</button>
     </form>
 
-<br><br>
     <h3 class="header">Messages</h3>
     <form id="add-comment" method="POST" action="/events/<%= eventInfo._id %>/messages">
     <div class="form-outline">
         <textarea name="content" class="form-control" id="textAreaExample" rows="4"></textarea>
         <label class="form-label" for="textAreaExample"></label>
-        <br><br>
-        <input type="submit" value="Add Message">
+        <input type="submit" value="Add Message" id="m-button">
     </form>
     </div>
 <% } %>
 
 
 <% if (eventInfo.messages.length) { %>
-<table>
+<table id="messages">
     <thead>
         <tr>
             <th>User</th>
             <th>Message</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -81,7 +78,7 @@
     </tbody>
 </table>
 <% } else { %>
-    <h4>No Messages</h4>
+    <h4 id="m-none">No Messages</h4>
 <% } %>    
 
 <%- include("../partials/footer") %>
