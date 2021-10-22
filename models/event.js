@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const messageSchema = new Schema({
   content: String,
-  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   userName: String,
   userAvatar: String
 }, {
@@ -11,22 +11,22 @@ const messageSchema = new Schema({
 });
 
 const eventSchema = new mongoose.Schema({
- venue: {
+  venue: {
     type: String,
   },
   date: {
     type: Date,
   },
   messages: [messageSchema],
-  artists: [{type: Schema.Types.ObjectId, ref: 'Artist'}],
-  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  artists: [{ type: Schema.Types.ObjectId, ref: 'Artist' }],
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   city: {
-    type: String, 
+    type: String,
     required: true
   },
-  like: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  like: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, {
-    timestamps: true
+  timestamps: true
 });
 
 module.exports = mongoose.model('Event', eventSchema);

@@ -1,41 +1,43 @@
 <%- include('../partials/header') %>
 
-<form action="/events/<%= event._id %>?_method=PUT" method="POST" id="eventEditTable">
-<label for="venue">Edit Venue: 
-    <input type="text" name="venue" value="<%= event.venue %>">
-</label>
+    <form action="/events/<%= event._id %>?_method=PUT" method="POST" id="eventEditTable">
+        <label for="venue">Edit Venue:
+            <input type="text" name="venue" value="<%= event.venue %>">
+        </label>
 
-<label for="date">Edit Date: 
-    <input type="datetime-local" name="date" value="<%= eventDate %>" required>
-</label>
+        <label for="date">Edit Date:
+            <input type="datetime-local" name="date" value="<%= eventDate %>" required>
+        </label>
 
 
-<label for="city">Edit City: 
-    <input type="text" name="city" value="<%= event.city %>">
-</label>
+        <label for="city">Edit City:
+            <input type="text" name="city" value="<%= event.city %>">
+        </label>
 
-<button class="submit-edit" type="submit">Update Event</button>
-</form>
-
-<label for="artists" id="editArtist">
-    <h4 id="editHeader">Edit Artists:</h4> 
-    <% event.artists.forEach(function(a) { %>
-        <div>
-            <%= a.name %>
-            <form action="/events/<%= event._id %>/artists/<%= a._id %>?_method=DELETE" method="POST">
-                <input id="artist-r" type="submit" value="X">
-            </form>
-        </div>
-    <% }) %>    
-    <form id="add-artist" method="POST" action="/events/<%= event._id %>/artists/edit">
-        <label id="addHeader">Add Artist:</label>
-        <select name="artistId">
-        <% artists.forEach(function(a) { %>
-            <option value="<%= a._id %>"><%= a.name %></option>
-        <%  }); %>
-        </select>
-        <button id="forArtist" type="submit">Add Artist to Event</button>
+        <button class="submit-edit" type="submit">Update Event</button>
     </form>
-</label>
+
+    <label for="artists" id="editArtist">
+        <h4 id="editHeader">Edit Artists:</h4>
+        <% event.artists.forEach(function(a) { %>
+            <div>
+                <%= a.name %>
+                    <form action="/events/<%= event._id %>/artists/<%= a._id %>?_method=DELETE" method="POST">
+                        <input id="artist-r" type="submit" value="X">
+                    </form>
+            </div>
+            <% }) %>
+                <form id="add-artist" method="POST" action="/events/<%= event._id %>/artists/edit">
+                    <label id="addHeader">Add Artist:</label>
+                    <select name="artistId">
+                        <% artists.forEach(function(a) { %>
+                            <option value="<%= a._id %>">
+                                <%= a.name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                    <button id="forArtist" type="submit">Add Artist to Event</button>
+                </form>
+    </label>
 
 <%- include('../partials/footer') %>

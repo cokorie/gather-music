@@ -96,9 +96,9 @@ function update(req, res) {
 }
 
 function removeArtist(req, res) {
-  Event.findById(req.params.eventId, function(err, event) {
+  Event.findById(req.params.eventId, function (err, event) {
     event.artists.remove(req.params.artistId);
-    event.save(function(err) {
+    event.save(function (err) {
       res.redirect(`/events/${event._id}/edit`);
     });
   });

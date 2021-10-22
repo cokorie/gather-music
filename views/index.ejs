@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/index.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap');
-        </style>
-    <title>Gather Music</title>
-</head>
-<body id="homeImage">
-    <nav>
-        <% if (user) { %>
-          <img src="<%= user.avatar %>" alt="Hello, <%= user.name %>" class="logout">&nbsp;<a href="/logout">Log Out</a>
-        <% } else { %>
-          <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-        <% } %>
-    </nav>
 
-    <h1 id="main1"><%= title %></h1>
-    <h3 id="main2">Bringing people together through love of concert-going!</h3>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/index.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap');
+  </style>
+  <title>Gather Music</title>
+</head>
+
+<body id="homeImage">
+  <nav>
+    <% if (user) { %>
+      <img src="<%= user.avatar %>" alt="Hello, <%= user.name %>" class="logout">&nbsp;<a href="/logout">Log Out</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+  </nav>
+
+  <h1 id="main1">
+    <%= title %>
+  </h1>
+  <h3 id="main2">Bringing people together through love of concert-going!</h3>
 
 <%- include('./partials/footer') %>

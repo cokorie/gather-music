@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
-<form id="city-search" action="/searches/index" method="POST">
+  <form id="city-search" action="/searches/index" method="POST">
     <label>City: </label>
     <input type="text" name="city" required>
     <input type="submit" value="Search for Event">
-</form>
+  </form>
 
-<table id="list">
+  <table id="list">
     <thead>
       <tr>
         <th>Venue</th>
@@ -18,21 +18,30 @@
       </tr>
     </thead>
     <% if (events.length) { %>
-    <tbody>
-      <% events.forEach(function(e) { %>
-        <tr>
-          <td><%= e.venue %></td>
-          <td><%= e.city %></td>
-          <td><%- e.artists.map(a => `${a.name}`).join(', ')%></td>
-          <td><%= e.date.toLocaleString() %></td>
-          <td><a href="/events/<%= e._id %>"><%= e.venue %> Venue Page</a></td>
-        </tr>
-        <% }); %>
-    </tbody>
-    <% } else { %>
+      <tbody>
+        <% events.forEach(function(e) { %>
+          <tr>
+            <td>
+              <%= e.venue %>
+            </td>
+            <td>
+              <%= e.city %>
+            </td>
+            <td>
+              <%- e.artists.map(a=> `${a.name}`).join(', ')%>
+            </td>
+            <td>
+              <%= e.date.toLocaleString() %>
+            </td>
+            <td><a href="/events/<%= e._id %>">
+                <%= e.venue %> Venue Page
+              </a></td>
+          </tr>
+          <% }); %>
+      </tbody>
+      <% } else { %>
         <h1>No Matching Results</h1>
-    <% } %> 
-    </table>
-
+        <% } %>
+  </table>
 
 <%- include('../partials/footer') %>

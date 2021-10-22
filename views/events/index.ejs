@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<table id="list">
+  <table id="list">
     <thead>
       <tr>
         <th>Venue</th>
@@ -16,31 +16,41 @@
     <tbody>
       <% events.forEach(function(e) { %>
         <tr>
-          <td><%= e.venue %></td>
-          <td><%= e.city %></td>
-          <td><%- e.artists.map(a => `${a.name}`).join(', ')%></td>
-          <td><%= e.date.toLocaleString() %></td>
-          <td><a href="/events/<%= e._id %>"><%= e.venue %> Venue Page</a></td>
+          <td>
+            <%= e.venue %>
+          </td>
+          <td>
+            <%= e.city %>
+          </td>
+          <td>
+            <%- e.artists.map(a=> `${a.name}`).join(', ')%>
+          </td>
+          <td>
+            <%= e.date.toLocaleString() %>
+          </td>
+          <td><a href="/events/<%= e._id %>">
+              <%= e.venue %> Venue Page
+            </a></td>
           <% if(user?._id.equals(e.user)) { %>
-          <td>
-            <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-            <button type="submit" id="eventDelete">X</button>
-            </form>
-          </td>
-          <td>
-            <form action="/events/<%= e._id %>/edit">
-              <button type="submit" id="eventEdit">Edit</button>
-            </form>
-          </td>
-          <% } %>
-          <td>
-            <form action="/events/<%= e._id %>/likes" method="POST">
-              <button type="submit" id="eventLike">Like (<%= e.like.length %>)</button>
-            </form>
-          </td>
+            <td>
+              <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
+                <button type="submit" id="eventDelete">X</button>
+              </form>
+            </td>
+            <td>
+              <form action="/events/<%= e._id %>/edit">
+                <button type="submit" id="eventEdit">Edit</button>
+              </form>
+            </td>
+            <% } %>
+              <td>
+                <form action="/events/<%= e._id %>/likes" method="POST">
+                  <button type="submit" id="eventLike">Like (<%= e.like.length %>)</button>
+                </form>
+              </td>
         </tr>
         <% }); %>
     </tbody>
-</table>
+  </table>
 
 <%- include('../partials/footer') %>
