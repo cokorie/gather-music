@@ -54,3 +54,4 @@ Please click into the following hyperlink to access my Gather Music Trello board
 * Adding a dedicated section for users to access the events they "liked"
 * Adding of more styling to each of the pages for the site
 * Edit functionality on messages for each user
+* Incorporation of musical act's genre into the events
